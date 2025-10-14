@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Paginas de Iteração</title>
+    
+    <style>
+        body {
+            font-family: sans-serif; 
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        .tabela {
+            border: 1px solid black; 
+            padding: 15px;           
+            text-align: center;
+            vertical-align: top;    
+            width: 33%;
+        }
+
+        .mensagem {
+            margin-top: 15px;
+            font-weight: bold; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td class="tabela">
+                <h3>Bem-vindo!</h3>
+                <label>Digite seu nome:</label>
+                <input type="text" placeholder="Seu nome"><br>
+                <button>Clique aqui</button>
+            </td>
+
+            <td class="tabela">
+                <h3>Bem-vindo!</h3>
+                <label for="campoNomeFuncional">Digite seu nome:</label>
+                <input type="text" id="campoNomeFuncional" placeholder="Seu nome">
+                <button onclick="saudacao()">Clique aqui</button>
+                <p id="mensagemResultado" class="mensagem"></p>
+            </td>
+
+            <td class="tabela">
+                <h3>Bem-vindo!</h3>
+                <label for="campoNomeErro">Digite seu nome:</label>
+                <input type="text" id="campoNomeErro" placeholder="Seu nome">
+                <button onclick="validacao()">Clique aqui</button>
+                <p id="mensagemErro" class="mensagem"></p>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        
+        function saudacao() {
+            var nomeDigitado = document.getElementById("campoNomeFuncional").value;
+            var paragrafoMensagem = document.getElementById("mensagemResultado");
+            
+            if (nomeDigitado != "") {
+                paragrafoMensagem.innerHTML = "Olá, " + nomeDigitado + "! Seja bem-vindo(a)!";
+            } else {
+                paragrafoMensagem.innerHTML = "";
+                alert("Por favor, digite seu nome no campo do Exemplo 2!");
+            }
+        }
+        
+       
+        function validacao() {
+            var nomeDigitado = document.getElementById("campoNomeErro").value;
+            var paragrafoMensagem = document.getElementById("mensagemErro");
+            
+            if (nomeDigitado == "") {
+                paragrafoMensagem.innerHTML = "Erro: É necessário digitar um nome!";
+                paragrafoMensagem.style.color = "red";
+            } else {
+                paragrafoMensagem.innerHTML = "Nome '" + nomeDigitado + "' validado com sucesso!";
+                paragrafoMensagem.style.color = "green";
+            }
+        }
+    </script>
+
+</body>
+</html>
